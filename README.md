@@ -42,6 +42,15 @@ cd ~/miniconda3/envs/<env_name>/lib/python3.8/site-packages/
 patch -p0 < <path_to_alphafold>/docker/openmm.patch
 ```
 
+## Download Alphafold parameters
+```
+wget https://storage.googleapis.com/alphafold/alphafold_params_2021-07-14.tar -P <path_to_params_dir>
+
+tar --extract --verbose --file=<path_to_params_dir>/alphafold_params_2021-07-14.tar
+
+rm <path_to_params_dir>/alphafold_params_2021-07-14.tar
+```
+
 ## How to run?
 ```
 bash run_alphafold.sh -d ./data_af2/ -o <output_dir> -m model_1,model_2,model_3,model_4,model_5 -f <path_to_fasta> -s <path_to_a3m_file> -t 2019-05-14

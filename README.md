@@ -34,14 +34,6 @@ pip install absl-py==0.13.0 biopython==1.79 chex==0.0.7 dm-haiku==0.0.4 dm-tree=
 pip install --upgrade jax jaxlib==0.1.69+cuda101 -f https://storage.googleapis.com/jax-releases/jax_releases.html
 ```
 
-## OpenMM Patch
-`Note: <path_to_alphafold> should the directory path where the alphafold directory is located`
-
-```
-cd ~/miniconda3/envs/<env_name>/lib/python3.8/site-packages/
-patch -p0 < <path_to_alphafold>/docker/openmm.patch
-```
-
 ## Download Alphafold parameters
 ```
 wget https://storage.googleapis.com/alphafold/alphafold_params_2021-07-14.tar -P <path_to_params_dir>
@@ -51,9 +43,17 @@ tar --extract --verbose --file=<path_to_params_dir>/alphafold_params_2021-07-14.
 rm <path_to_params_dir>/alphafold_params_2021-07-14.tar
 ```
 
+## OpenMM Patch
+`Note: <path_to_alphafold> should the directory path where the alphafold directory is located`
+
+```
+cd ~/miniconda3/envs/<env_name>/lib/python3.8/site-packages/
+patch -p0 < <path_to_alphafold>/docker/openmm.patch
+```
+
 ## How to run?
 ```
-bash run_alphafold.sh -d ./data_af2/ -o <output_dir> -m model_1,model_2,model_3,model_4,model_5 -f <path_to_fasta> -s <path_to_a3m_file> -t 2019-05-14
+bash run_alphafold.sh -d <path_to_params_dir> -o <output_dir> -m model_1,model_2,model_3,model_4,model_5 -f <path_to_fasta> -s <path_to_a3m_file> -t 2019-05-14
 ```
 - -m: at least one model name must be provided
 - -t: template date (refer alphafold github repository for more details)

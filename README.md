@@ -20,7 +20,7 @@ conda update -n base conda
 ```
 conda activate <env_name>
 
-conda install -y -c conda-forge openmm==7.5.1 cudnn==8.0.4 cudatoolkit==11.0.3 pdbfixer==1.7
+conda install -y -c conda-forge openmm==7.5.1 cudnn==8.2.1.32 pdbfixer==1.7
 conda install -y -c bioconda hmmer==3.3.2 hhsuite==3.3.0 kalign2==2.04
 ```
 
@@ -38,7 +38,7 @@ pip install --upgrade jax jaxlib==0.1.69+cuda101 -f https://storage.googleapis.c
 ```
 wget https://storage.googleapis.com/alphafold/alphafold_params_2021-07-14.tar -P <path_to_params_dir>
 
-tar --extract --verbose --file=<path_to_params_dir>/alphafold_params_2021-07-14.tar
+tar --extract --verbose --file=<path_to_params_dir>/alphafold_params_2021-07-14.tar -C <path_to_params_dir>
 
 rm <path_to_params_dir>/alphafold_params_2021-07-14.tar
 ```

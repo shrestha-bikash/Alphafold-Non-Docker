@@ -38,7 +38,10 @@ pip install --upgrade jax jaxlib==0.1.69+cuda101 -f https://storage.googleapis.c
 ```
 wget https://storage.googleapis.com/alphafold/alphafold_params_2021-07-14.tar -P <path_to_params_dir>
 
-tar --extract --verbose --file=<path_to_params_dir>/alphafold_params_2021-07-14.tar -C <path_to_params_dir>
+cd <path_to_params_dir>
+mkdir params/
+
+tar --extract --verbose --file=<path_to_params_dir>/alphafold_params_2021-07-14.tar -C params/
 
 rm <path_to_params_dir>/alphafold_params_2021-07-14.tar
 ```
